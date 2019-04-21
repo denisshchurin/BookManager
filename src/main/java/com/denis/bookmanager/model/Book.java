@@ -1,9 +1,22 @@
 package com.denis.bookmanager.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "BOOKS")
 public class Book {
+    @Id
+    @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column(name = "TITLE")
     private String title;
+
+    @Column(name = "AUTHOR")
     private String author;
+
+    @Column(name = "PRICE")
     private int price;
 
     public int getId() {
