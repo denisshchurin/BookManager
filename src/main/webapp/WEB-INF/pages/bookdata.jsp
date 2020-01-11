@@ -59,8 +59,8 @@
     </tr>
     <tr>
         <td>${book.id}</td>
-        <td>${book.Title}</td>
-        <td>${book.Author}</td>
+        <td>${book.title}</td>
+        <td>${book.author}</td>
         <td>${book.price/100}${book.price%100}</td>
     </tr>
 </table>

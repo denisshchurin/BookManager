@@ -33,7 +33,7 @@ public class BookDaoImpl implements BookDao {
 
     public void removeBook(int id) {
         Session session = sessionFactory.getCurrentSession();
-        Book book = session.load(Book.class, id);
+        Book book = (Book) session.load(Book.class, id);
 
         if(book != null) {
             session.delete(book);
@@ -44,7 +44,7 @@ public class BookDaoImpl implements BookDao {
 
     public Book getBookById(int id) {
         Session session = sessionFactory.getCurrentSession();
-        Book book = session.load(Book.class, id);
+        Book book = (Book) session.load(Book.class, id);
         logger.info("Book successfuly loaded. Bool details: " + book);
         return book;
     }

@@ -61,8 +61,8 @@
             <th width="120">Title</th>
             <th width="120">Author</th>
             <th width="120">Price</th>
-            <th width="60" bgcolor="orange">Edit</th>
-            <th width="60" bgcolor="red">Delete</th>
+            <th width="60">Edit</th>
+            <th width="60">Delete</th>
         </tr>
         <c:forEach items="${listBooks}" var="book">
             <tr>
@@ -71,7 +71,7 @@
                 <td>${book.author}</td>
                 <td>${book.price/100}${book.price%100}</td>
                 <td><a href="<c:url value="/edit/${book.id}"/>">Edit</a></td>
-                <td><a href="<c:url value="/revome/${book.id}"/>">Delete</a></td>
+                <td><a href="<c:url value="/remove/${book.id}"/>">Delete</a></td>
             </tr>
         </c:forEach>
     </table>
@@ -82,9 +82,9 @@
 
 <c:url var="addAction" value="/books/add"/>
 
-<form:form action="${addAction}" commandName="book">
+<form:form action="${addAction}" modelAttribute="book">
     <table>
-        <c:if test="${!empty book.Title}">
+        <c:if test="${!empty book.title}">
             <tr>
                 <td>
                     <form:label path="id">
@@ -129,11 +129,11 @@
         </tr>
         <tr>
             <td colspan="2">
-                <c:if test="${!empty book.bookTitle}">
+                <c:if test="${!empty book.title}">
                     <input type="submit"
                            value="<spring:message text="Edit Book"/>"/>
                 </c:if>
-                <c:if test="${empty book.bookTitle}">
+                <c:if test="${empty book.title}">
                     <input type="submit"
                            value="<spring:message text="Add Book"/>"/>
                 </c:if>
